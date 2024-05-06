@@ -1,14 +1,13 @@
 <?php
 /*
-Plugin Name: Hide Post Dates
+Plugin Name: WP Hide Post Dates
 Plugin URI: https://originalsolutions.com.au/hide-post-dates
 Description: This plugin hides the post dates on all posts.
-Version: 0.3
+Version: 0.10
 Author: Tom Kaczocha
 Author URI: https://originalsolutions.com.au
 */
 
-// Hook for adding admin menus
 add_action('admin_menu', 'hpd_add_box');
 add_action('wp_enqueue_scripts', 'hpd_enqueue_styles');
 add_action('wp_head', 'hpd_custom_styles');
@@ -16,7 +15,7 @@ add_action('save_post', 'hpd_save_postdata');
 
 function hpd_enqueue_styles()
 {
-    wp_add_inline_style('wp-block-library', '.post-date, .entry-date { display: none !important; }');
+    wp_add_inline_style('wp-block-library', '.post-date, .entry-date, .nav-post-date, .posted-on { display: none !important; }');
 }
 
 // Adds a meta box to the post editing screen

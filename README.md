@@ -1,4 +1,4 @@
-# Hide Post Dates
+# Wordpress Hide Post Dates
 
 Hide Post Dates is a WordPress plugin that allows you to hide the publication dates on all posts by default, with the option to display them on specified posts. This feature can be useful for bloggers who wish to maintain evergreen content or control the visibility of post dates based on specific needs.
 
