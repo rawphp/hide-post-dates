@@ -3,7 +3,7 @@
 Plugin Name: Hide Post Dates
 Plugin URI: https://originalsolutions.com.au/hide-post-dates
 Description: This plugin hides the post dates on all posts.
-Version: 0.2
+Version: 0.3
 Author: Tom Kaczocha
 Author URI: https://originalsolutions.com.au
 */
@@ -29,7 +29,9 @@ function hpd_add_box()
 function hpd_meta_box_callback($post)
 {
     wp_nonce_field(plugin_basename(__FILE__), 'hpd_noncename');
+
     $value = get_post_meta($post->ID, 'show_date', true);
+
     echo '<label for="hpd_field">Show Date:</label> ';
     echo '<input type="checkbox" id="hpd_field" name="hpd_field" value="yes" ' . checked($value, 'yes', false) . '/>';
 }
@@ -52,8 +54,10 @@ function hpd_save_postdata($post_id)
         if (!current_user_can('edit_post', $post_id))
             return;
     }
+
     // Update the meta field in the database.
     $show_date = (isset($_POST['hpd_field']) && $_POST['hpd_field'] == 'yes') ? 'yes' : 'no';
+
     update_post_meta($post_id, 'show_date', $show_date);
 }
 
